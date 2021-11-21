@@ -23,10 +23,10 @@
 	</header>
 	<div class="results" >
 
-	{% if prediction > 1600%}
+	{% if SAT > 1600 %}
 	<h2 style="color:yellow;text-align : center; font-size : 30px">Enter value less than or equal to 1600</h2>
 
-		{% if prediction <0 %}
+		{% if SAT <0 %}
 	<h2 style="color:yellow;text-align : center; font-size : 30px">Enter value greater than 0</h2>	
 	
 	{% else %}	
