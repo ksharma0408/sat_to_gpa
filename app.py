@@ -17,15 +17,10 @@ model = pickle.load(open('sat.pkl', 'rb'))
 app = Flask(__name__)
 
 
-@app.route('/')
-def home():
-    return render_template('home.html')
-
-@app.route('/predict',methods=['POST'])
-
 def predict():
-    SAT  = input("Enter the SAT Number :", type = NUMBER)
-
+    SAT  = input("Enter the SAT Score :", type = NUMBER)
+    if SAT>1600 or SAT<0:
+        put_text("Enter value in between 0 and 1600")
     prediction = model.predict([[SAT]])
     #output("The predicted chance of getting admitted is {}%".format(prediction[0]*100))
     put_text("Your score is: ", str(prediction))
