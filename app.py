@@ -21,9 +21,10 @@ def predict():
     SAT  = input("Enter the SAT Score :", type = NUMBER)
     if SAT>1600 or SAT<0:
         put_text("Enter value in between 0 and 1600")
-    prediction = model.predict([[SAT]])
-    #output("The predicted chance of getting admitted is {}%".format(prediction[0]*100))
-    put_text("Your score is: ", str(prediction))
+    else:
+        prediction = model.predict([[SAT]])
+        #output("The predicted chance of getting admitted is {}%".format(prediction[0]*100))
+        put_text("Your score is: ", str(prediction))
 
 
 app.add_url_rule('/tool', 'webio_view', webio_view(predict), methods=['GET', 'POST', 'OPTIONS'])
