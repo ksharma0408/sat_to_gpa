@@ -16,6 +16,13 @@ import argparse
 model = pickle.load(open('sat.pkl', 'rb'))
 app = Flask(__name__)
 
+
+@app.route('/')
+def home():
+    return render_template('home.html')
+
+@app.route('/predict',methods=['POST'])
+
 def predict():
     SAT  = input("Enter the SAT Number :", type = NUMBER)
 
